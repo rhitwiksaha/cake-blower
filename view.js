@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cake = document.getElementById("cake");
-  const candleCountDisplay = document.getElementById("candleCount");
   let candles = [];
-
-  function updateCandleCount() {
-    const activeCandles = candles.filter(
-      (candle) => !candle.classList.contains("out")
-    ).length;
-    candleCountDisplay.textContent = activeCandles;
-  }
+  let audioContext;
+  let analyser;
+  let microphone;
 
   function addCandle(left, top, isOut = false) {
     const candle = document.createElement("div");
@@ -26,7 +21,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cake.appendChild(candle);
     candles.push(candle);
-    updateCandleCount();
+  }
+
+  function isBlowing() {
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    analyser.getByteFrequencyData(dataArray);
+    let sum = 0;
+    for (let i = 0; i < bufferLength; i++) {
+      sum += dataArray[i];
+    }
+    let average = sum / bufferLength;
+    return average > 40; // sensitivity threshold
+  }
+
+  function blowOutCandles() {
+    let blownOut = 0;
+
+    if (isBlowing()) {
+      candles.forEach((candle) => {
+        if (!candle.classList.contains("out") && Math.random() > 0.5) {
+          candle.classList.add("out");
+          blownOut++;
+        }
+      });
+    }
+
+    if (blownOut > 0) {
+      updateCandleCount();
+    }
+  }
+
+  if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then(function (stream) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioContext.createAnalyser();
+        microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyser);
+        analyser.fftSize = 256;
+        setInterval(blowOutCandles, 200);
+      })
+      .catch(function (err) {
+        console.log("Unable to access microphone: " + err);
+      });
+  } else {
+    console.log("getUserMedia not supported on your browser!");
   }
 
   async function loadCake(id) {
@@ -44,12 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".candle").forEach(c => c.remove());
     candles = [];
 
-    // Add saved candles
     data.candles.forEach(candleData => {
       addCandle(candleData.left, candleData.top, candleData.out);
     });
 
-    document.getElementById("messageDisplay").textContent = data.message || "";
+    const msgBox = document.getElementById("messageBox");
+    const msgDisplay = document.getElementById("messageDisplay");
+
+    msgDisplay.textContent = data.message || "🎂 Happy Birthday!";
+    msgBox.style.display = "block";
   }
 
   const params = new URLSearchParams(window.location.search);

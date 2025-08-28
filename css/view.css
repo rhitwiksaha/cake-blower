@@ -1,0 +1,29 @@
+#messageBox {
+  max-width: 400px;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #ffe2a5, #c99c69);
+  box-shadow: rgb(129, 114, 58) 0px 20px 30px -10px;
+  box-shadow: rgb(129, 114, 58) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  text-align: center;
+  font-family: 'Roboto';
+  color: #333;
+  position: relative;
+
+}
+
+#messageBox::before {
+  content: "HAPPY BIRTHDAY PUCHUN";
+  display: block;
+  font-size: 1em;
+  margin-bottom: 12px;
+  color: hsl(35, 83%, 18%);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#messageDisplay {
+  font-size: 0.8em;
+  color: #222;
+  margin: 0;
+  word-wrap: break-word;
+  line-height: 1.5;
+}

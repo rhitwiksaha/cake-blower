@@ -1,0 +1,52 @@
+.candle-count-display {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #6A4B18;
+  background-color: #F0E4D0;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #553C13;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 250px;
+  font-family: 'Arial', sans-serif;
+}
+
+.message-box input,
+.message-box textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #553C13;
+  background: #FFF5E1;
+  color: #333;
+}
+
+.message-box button {
+  padding: 10px;
+  background: #f4ebdc;
+  color: #553C13;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
+}
+
+.message-box button:hover {
+  background: #c0aa8c;
+}
