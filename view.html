@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Cake Blower</title>
+    <title>Birthday Cake 🎂</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- Display number of active candles -->
+    <!-- Candle counter -->
     <div class="candle-count-display">
       Candles on the Cake: <span id="candleCount">0</span>
     </div>
 
-    <!-- Cake container -->
+    <!-- Cake -->
     <div class="container">
       <div class="cake" id="cake">
         <div class="plate"></div>
@@ -29,20 +29,9 @@
         <div class="drip drip3"></div>
       </div>
 
-      <!-- Birthday message -->
+      <!-- Message only -->
       <div class="message-box">
-        <input
-          type="text"
-          id="messageInput"
-          placeholder="Write a Personalised Message Here."
-        />
-        <button id="saveCakeBtn">Generate Link</button>
         <p id="messageDisplay"></p>
-
-        <div id="linkSection" style="display:none; margin-top:10px;">
-          <input type="text" id="shareLink" readonly style="width:80%;" />
-          <button id="copyLinkBtn">Copy</button>
-        </div>
       </div>
     </div>
 
@@ -58,6 +47,7 @@
       );
     </script>
 
-    <script src="./create.js"></script>
+    <!-- Viewer script -->
+    <script src="./view.js"></script>
   </body>
 </html>

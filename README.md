@@ -23,7 +23,7 @@ The cake design was adapted from Fazlur Rahman's creation on CodePen ([View Orig
 
 ## Accessing the Project
 
-To experience the Interactive Birthday Cake, visit the GitHub Pages link: [Interactive Birthday Cake](https://sherryuser.github.io/cake-blow/)
+To experience the Interactive Birthday Cake, visit the GitHub Pages link: [Interactive Birthday Cake](https://rhitwiksaha.github.io/cake-blower/)
 
 ## How to Use
 

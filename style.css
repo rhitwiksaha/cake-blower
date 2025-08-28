@@ -24,14 +24,17 @@ body {
   color: #AD030F;
 }
 
+.container {
+  display: flex;
+  justify-content: center; /* centers them horizontally as a group */
+  align-items: center;
+  gap: 100px; /* spacing between cake and message box */
+}
+
 .cake {
-  position: absolute;
-  width: 250px;
+  position: relative;
+  width: 400px;
   height: 200px;
-  top: 50%;
-  left: 50%;
-  margin-top: -70px;
-  margin-left: -125px;
 }
 
 .plate {
@@ -93,12 +96,12 @@ body {
 }
 
 .drip {
- display: block;
+  display: block;
   width: 50px;
   height: 60px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  background-color: #f0e4d0; 
+  background-color: #f0e4d0;
 }
 
 .drip1 {
@@ -184,4 +187,48 @@ body {
     transform: skewX(5deg);
     box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
   }
+}
+
+/* === NEW: Message box styles === */
+.message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 250px;
+  font-family: 'Arial', sans-serif;
+}
+
+.message-box label {
+  font-size: 18px;
+  color: #553C13;
+  font-weight: bold;
+}
+
+.message-box textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #553C13;
+  background: #FFF5E1;
+  color: #333;
+  resize: vertical;
+}
+
+.message-box button {
+  padding: 10px;
+  background: #f4ebdc;
+  color: #553C13;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
+}
+
+.message-box button:hover {
+  background: #c0aa8c;
 }
