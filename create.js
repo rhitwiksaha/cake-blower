@@ -108,7 +108,8 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error("Error saving cake:", error);
     } else {
       const cakeId = data[0].id;
-      const shareLink = `${window.location.origin}/view.html?id=${cakeId}`;
+      const basePath = window.location.pathname.replace(/\/[^/]*$/, "");
+      const shareLink = `${window.location.origin}${basePath}/view.html?id=${cakeId}`;
       const linkSection = document.getElementById("linkSection");
       const linkInput = document.getElementById("shareLink");
 
