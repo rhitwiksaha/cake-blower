@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const msgBox = document.getElementById("messageBox");
     const msgDisplay = document.getElementById("messageDisplay");
 
-    msgDisplay.textContent = data.message || "🎂 Happy Birthday!";
+    msgDisplay.innerHTML = (data.message || "🎂 Happy Birthday!").replace(/\n/g, "<br>");
     msgBox.style.display = "block";
   }
 
